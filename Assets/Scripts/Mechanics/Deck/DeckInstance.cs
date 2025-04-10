@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckInstance
+public class DeckInstance<T> where T : CardSO
 {
-    private List<CardSO> _deck;
-    public DeckInstance(List<CardSO> cards, int deckSize)
+    private List<T> _deck;
+    public DeckInstance(List<T> cards, int deckSize)
     {
-        _deck = new List<CardSO>();
+        _deck = new List<T>();
         _deck.Clear();
         if(cards == null)
         {
@@ -17,6 +17,14 @@ public class DeckInstance
         for (int i = 0; i < deckSize; i++)
         {
             _deck.Add(cards[UnityEngine.Random.Range(0, cards.Count)]);
+        }
+    }
+
+    public void PrintDeck()
+    {
+        foreach (var card in _deck)
+        {
+            Debug.Log(card.name);
         }
     }
 }

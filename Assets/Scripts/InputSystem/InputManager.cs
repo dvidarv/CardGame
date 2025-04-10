@@ -6,7 +6,11 @@ public class InputManager: MonoBehaviour
 
     private InputActions _inputActions;
 
+    [Header("Mouse Position Inputs")]
     public Vector2 _mousePointInput;
+
+
+    [Header("Mouse Click Inputs")]
     private bool _leftClickInput = false;
     private bool _rightClickInput = false;
 

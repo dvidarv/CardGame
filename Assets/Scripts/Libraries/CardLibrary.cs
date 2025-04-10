@@ -1,18 +1,16 @@
-using Mono.Cecil;
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CardLibrary
+public static class CardLibrary
 {
-    public List<CardSO> AllCardsList {  get; private set; }
-    public List<MonsterCardSO> AllMonsterCards { get; private set; }
-    public List<HunterCardSO> AllHunterCards { get; private set; }
-    public List<WeaponCardSO> AllWeaponCards { get; private set; }
-    public List<ItemCardSO> AllItemCards { get; private set; }
+    public static List<CardSO> AllCardsList {  get; private set; }
+    public static List<MonsterCardSO> AllMonsterCards { get; private set; }
+    public static List<HunterCardSO> AllHunterCards { get; private set; }
+    public static List<WeaponCardSO> AllWeaponCards { get; private set; }
+    public static List<ItemCardSO> AllItemCards { get; private set; }
 
-    public void InitCardLibrary()
+    public static void InitCardLibrary()
     {
         CardSO[] AllCardsArray = Resources.LoadAll<CardSO>("Cards");
         AllCardsList = new List<CardSO>(AllCardsArray);
@@ -22,7 +20,7 @@ public class CardLibrary
         AllWeaponCards = new List<WeaponCardSO>(AllCardsList.OfType<WeaponCardSO>());
         AllItemCards = new List<ItemCardSO>(AllCardsList.OfType<ItemCardSO>());
     }
-    public void PrintCardsOfType<T>(List<T> cards) where T : CardSO
+    public static void PrintCardsOfType<T>(List<T> cards) where T : CardSO
     {
         foreach (var card in cards)
         {

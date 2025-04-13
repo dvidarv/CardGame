@@ -27,4 +27,9 @@ public class DeckInstance<T> where T : CardSO
             Debug.Log(card.name);
         }
     }
+
+    public List<T> GetCards()
+    {
+        return _deck;
+    }
 }

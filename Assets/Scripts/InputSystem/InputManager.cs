@@ -55,7 +55,6 @@ public class InputManager: MonoBehaviour
         {
             _leftClickInput = false;
             Debug.Log("Left Click pressed");
-            CardLibrary.InitCardLibrary();
             //PERFORM LEFT CLICK ACTION ON MOUSE MANAGER SCRIPT TO MANAGE THE CLICK FUNCTION
         }
     }
@@ -66,8 +65,6 @@ public class InputManager: MonoBehaviour
         {
             _rightClickInput = false;
             Debug.Log("Right Click pressed");
-            DeckInstance<MonsterCardSO> deck = new DeckInstance<MonsterCardSO>(CardLibrary.AllMonsterCards, 5);
-            deck.PrintDeck();
             //PERFORM RIGHT CLICK ACTION ON MOUSE MANAGER SCRIPT TO MANAGE THE CLICK FUNCTION
         }
     }

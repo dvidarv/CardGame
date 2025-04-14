@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdd4dcab51ad744db39dbdbc51dd89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Instance: {fileID: 0}
   _deckVisualPrefab: {fileID: 3756775688244860062, guid: 2154265cebb87074a8796b35c4afe484, type: 3}
+  _monsterCardPrefab: {fileID: 7914449201802536163, guid: 15a571332707f794cb12bf6d352f1405, type: 3}
+  _hunterCardPrefab: {fileID: 1913648788514266766, guid: 2a09bd837a6f7fa45ae3b46a52b966d6, type: 3}
+  _weaponCardPrefab: {fileID: 2099066649451583046, guid: ef38dfcca0f7c6f4e87b6b8ab7901183, type: 3}
+  _itemCardPrefab: {fileID: 3611549762795137759, guid: 2b3f92381b4d13246817d7e32bc2e4a8, type: 3}

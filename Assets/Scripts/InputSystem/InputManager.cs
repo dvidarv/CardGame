@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class InputManager: MonoBehaviour
@@ -5,6 +6,9 @@ public class InputManager: MonoBehaviour
     public static InputManager Instance;
 
     private InputActions _inputActions;
+
+    public event Action OnLeftClick;
+    public event Action OnRightClick;
 
     [Header("Mouse Position Inputs")]
     public Vector2 _mousePointInput;
@@ -54,8 +58,7 @@ public class InputManager: MonoBehaviour
         if (_leftClickInput)
         {
             _leftClickInput = false;
-            Debug.Log("Left Click pressed");
-            //PERFORM LEFT CLICK ACTION ON MOUSE MANAGER SCRIPT TO MANAGE THE CLICK FUNCTION
+            OnLeftClick?.Invoke();
         }
     }
 
@@ -64,8 +67,12 @@ public class InputManager: MonoBehaviour
         if (_rightClickInput)
         {
             _rightClickInput = false;
-            Debug.Log("Right Click pressed");
-            //PERFORM RIGHT CLICK ACTION ON MOUSE MANAGER SCRIPT TO MANAGE THE CLICK FUNCTION
+            OnRightClick?.Invoke();
         }
+    }
+
+    public Vector2 GetMousePointVector()
+    {
+        return _mousePointInput;
     }
 }

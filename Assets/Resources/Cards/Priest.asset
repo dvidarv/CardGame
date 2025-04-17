@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72f1f64fe806cc64f879fc2091ce473c, type: 3}
-  m_Name: Zombie
+  m_Script: {fileID: 11500000, guid: 0ed01aa162317214fbc018b70b8d56d5, type: 3}
+  m_Name: Priest
   m_EditorClassIdentifier: 
-  cardName: Zombie
-  cardAttackValue: 2
-  cardHealthValue: 1
+  cardType: 0
+  cardName: Priest
+  attackValue: 1
+  healthValue: 3

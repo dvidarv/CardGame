@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CardGameManager : MonoBehaviour
@@ -5,16 +7,10 @@ public class CardGameManager : MonoBehaviour
     [HideInInspector]
     public static CardGameManager Instance;
 
-    private DeckInstance<HunterCardSO> _hunterDeck;
-    private DeckInstance<MonsterCardSO> _monsterDeck;
-    private DeckInstance<WeaponCardSO> _weaponDeck;
-    private DeckInstance<ItemCardSO> _itemDeck;
-
-
     [SerializeField] private Transform _hunterDeckTransform;
     [SerializeField] private Transform _monsterDeckTransform;
-    [SerializeField] private Transform _weaponDeckTransform;
-    [SerializeField] private Transform _itemDeckTransform;
+
+    List<CardInstance> cards = new List<CardInstance>();
     
     private void Awake()
     {
@@ -32,16 +28,13 @@ public class CardGameManager : MonoBehaviour
 
     private void Start()
     {
-        _monsterDeck = new DeckInstance<MonsterCardSO>(CardLibrary.AllMonsterCards, 5);
-        DeckManager.Instance.DisplayDeck<MonsterCardSO>(_monsterDeck, _monsterDeckTransform);
+        for(int i = 0; i < 5; i++)
+        {
+            CardInstance testCard = new CardInstance(CardLibrary.AllMonsterCardsList[Random.Range(0, CardLibrary.AllMonsterCardsList.Count)]);
+            cards.Add(testCard);
+        }
+        DeckInstance deck = new DeckInstance(cards);
 
-        _hunterDeck = new DeckInstance<HunterCardSO>(CardLibrary.AllHunterCards, 5);
-        DeckManager.Instance.DisplayDeck<HunterCardSO>(_hunterDeck, _hunterDeckTransform);
-
-        _weaponDeck = new DeckInstance<WeaponCardSO>(CardLibrary.AllWeaponCards, 2);
-        DeckManager.Instance.DisplayDeck<WeaponCardSO>(_weaponDeck, _weaponDeckTransform);
-
-        _itemDeck = new DeckInstance<ItemCardSO>(CardLibrary.AllItemCards, 2);
-        DeckManager.Instance.DisplayDeck<ItemCardSO>(_itemDeck, _itemDeckTransform);
+        DeckManager.Instance.SpawnDeck(deck, _monsterDeckTransform);
     }
 }

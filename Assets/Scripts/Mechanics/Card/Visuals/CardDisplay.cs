@@ -1,17 +1,26 @@
 using TMPro;
 using UnityEngine;
 
-public abstract class CardDisplay : MonoBehaviour
+public class CardDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshPro _cardName;
+    [SerializeField] private TextMeshPro _cardType;
+    [SerializeField] private TextMeshPro _cardAttackValue;
+    [SerializeField] private TextMeshPro _cardHealthValue;
 
-    protected CardSO _cardData;
+    private CardInstance _cardInstance;
 
-    public virtual void Setup(CardSO card)
+    public void SetupVisual(CardInstance cardInstance)
     {
-        _cardData = card;
-        _cardName.text = card.cardName;
+        _cardInstance = cardInstance;
+        
     }
 
-
+    public void UpdateVisual()
+    {
+        _cardType.text = _cardInstance._cardType.ToString();
+        _cardName.text = _cardInstance._cardName.ToString();
+        _cardAttackValue.text = _cardInstance._cardCurrentAttackValue.ToString();
+        _cardHealthValue.text = _cardInstance._cardCurrentHealthValue.ToString();
+    }
 }

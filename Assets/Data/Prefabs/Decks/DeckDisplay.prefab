@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3892459023416145633}
   - component: {fileID: 2597588347945423950}
+  - component: {fileID: -4987698847681277170}
   m_Layer: 0
   m_Name: DeckDisplay
   m_TagString: Untagged
@@ -48,3 +49,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d5e046ef6976f4bbe3e23facaa3c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cardTypePrefab: {fileID: 6116294387150922245, guid: 89c839e4aab73ea4cbfa5076332f32a8, type: 3}
+  _cardParentTransform: {fileID: 3892459023416145633}
+  _yOffset: 0.02
+--- !u!65 &-4987698847681277170
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756775688244860062}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25, y: 0.1, z: 0.4}
+  m_Center: {x: 0, y: 0.05, z: 0}

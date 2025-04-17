@@ -1,35 +1,41 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class DeckInstance<T> where T : CardSO
+public class DeckInstance
 {
-    private List<T> _deck;
-    public DeckInstance(List<T> cards, int deckSize)
+    public List<CardInstance> cards;
+    public DeckInstance()
     {
-        _deck = new List<T>();
-        _deck.Clear();
-        if(cards == null)
-        {
-            Debug.Log("Could not create deck. The list of provided cards is empty");
-            return;
-        }
-        for (int i = 0; i < deckSize; i++)
-        {
-            _deck.Add(cards[UnityEngine.Random.Range(0, cards.Count)]);
-        }
+        cards = new List<CardInstance>();
+    }
+    public DeckInstance(List<CardInstance> cards)
+    {
+        this.cards = cards;
+    }
+    public void ShuffleDeck()
+    {
+        cards = cards.OrderBy(c => UnityEngine.Random.value).ToList();
     }
 
-    public void PrintDeck()
+    public CardInstance DrawCard()
     {
-        foreach (var card in _deck)
+        if(cards.Count > 0)
         {
-            Debug.Log(card.name);
+            CardInstance topCard = cards[0];
+            cards.RemoveAt(0);
+            return topCard;
+        }
+        else
+        {
+            return null;
         }
     }
-
-    public List<T> GetCards()
+    
+    public void AddCard(CardInstance card)
     {
-        return _deck;
+        cards.Add(card);
     }
 }

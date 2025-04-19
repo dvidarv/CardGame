@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class DeckInstance
 {
     public List<CardInstance> cards;
+
+    public Action<CardInstance> OnCardDrawn;
     public DeckInstance()
     {
         cards = new List<CardInstance>();
@@ -26,6 +28,7 @@ public class DeckInstance
         {
             CardInstance topCard = cards[0];
             cards.RemoveAt(0);
+            OnCardDrawn?.Invoke(topCard);
             return topCard;
         }
         else

@@ -17,10 +17,10 @@ public class CardManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SpawnCard(CardInstance cardInstance, Transform parentTransform)
+    public GameObject SpawnCard(CardInstance cardInstance, Transform parentTransform)
     {
         GameObject spawnedCard = Instantiate(_cardPrefab, parentTransform);
         spawnedCard.GetComponent<CardDisplay>().SetupVisual(cardInstance);
-
+        return spawnedCard;
     }
 }

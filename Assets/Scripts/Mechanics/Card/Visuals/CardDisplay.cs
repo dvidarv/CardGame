@@ -13,7 +13,7 @@ public class CardDisplay : MonoBehaviour
     public void SetupVisual(CardInstance cardInstance)
     {
         _cardInstance = cardInstance;
-        
+        UpdateVisual();
     }
 
     public void UpdateVisual()

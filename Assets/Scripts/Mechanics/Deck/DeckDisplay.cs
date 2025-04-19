@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,7 +15,8 @@ public class DeckDisplay : MonoBehaviour, IClickable, IHoverable
 
     public void Setup(DeckInstance deck)
     {
-        _deckInstance = deck;
+        _deckInstance = deck; 
+
         foreach (var card in _visualCards)
         {
             Destroy(card);
@@ -45,6 +47,11 @@ public class DeckDisplay : MonoBehaviour, IClickable, IHoverable
         Destroy(topCard);
     }
 
+    public DeckInstance GetDeckInstance()
+    {
+        return _deckInstance;
+    }
+
     public void OnHoverEnter()
     {
         Debug.Log("Entered Hover " + this.gameObject.name);
@@ -58,6 +65,7 @@ public class DeckDisplay : MonoBehaviour, IClickable, IHoverable
     public void OnLeftClick()
     {
         Debug.Log(" Left clicked " + this.gameObject.name);
+        CardInstance drawnCard = _deckInstance.DrawCard();
         RemoveCardVisual();
     }
 

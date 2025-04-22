@@ -19,7 +19,7 @@ public class CardManager : MonoBehaviour
     }
     public GameObject SpawnCard(CardInstance cardInstance, Transform parentTransform)
     {
-        GameObject spawnedCard = Instantiate(_cardPrefab, parentTransform);
+        GameObject spawnedCard = Instantiate(_cardPrefab, parentTransform.position, parentTransform.rotation);
         spawnedCard.GetComponent<CardDisplay>().SetupVisual(cardInstance);
         return spawnedCard;
     }

@@ -9,10 +9,14 @@ public class InputManager: MonoBehaviour
 
     public event Action OnLeftClick;
     public event Action OnRightClick;
+    public event Action<Vector2> OnMouseScroll;
+
 
     [Header("Mouse Position Inputs")]
     public Vector2 _mousePointInput;
 
+    [Header("Mouse Scroll Input")]
+    public Vector2 _mouseScrollInput;
 
     [Header("Mouse Click Inputs")]
     private bool _leftClickInput = false;
@@ -37,6 +41,12 @@ public class InputManager: MonoBehaviour
             _inputActions.MouseActions.Point.performed += i => _mousePointInput = i.ReadValue<Vector2>();
             _inputActions.MouseActions.LeftClick.performed += i => _leftClickInput = true;
             _inputActions.MouseActions.RightClick.performed += i => _rightClickInput = true;
+            _inputActions.MouseActions.Scroll.performed += i =>
+            {
+                _mouseScrollInput = i.ReadValue<Vector2>();
+                OnMouseScroll?.Invoke(_mouseScrollInput);
+            };
+
         }
 
         _inputActions.Enable();

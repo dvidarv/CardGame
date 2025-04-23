@@ -27,6 +27,7 @@ public class MouseManager : MonoBehaviour
     {
         InputManager.Instance.OnLeftClick += HandleLeftClick;
         InputManager.Instance.OnRightClick += HandleRightClick;
+        InputManager.Instance.OnMouseScroll += ChangeCameraTransform;
     }
     private void Update()
     {
@@ -85,5 +86,10 @@ public class MouseManager : MonoBehaviour
                 clickable.OnRightClick();
             }
         }
+    }
+
+    private void ChangeCameraTransform(Vector2 scrollInput)
+    {
+        CameraManager.Instance.ChangeCameraTransform(scrollInput.y);
     }
 }

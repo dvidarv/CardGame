@@ -24,7 +24,6 @@ public class HandDisplay : MonoBehaviour
         for (int i = 0; i < _handInstance.cards.Count; i++)
         {
             CardManager.Instance.SpawnCard(_handInstance.cards[i], transform);
-            //UpdateCardPositions();
             UpdateCardLine();
         }
     }
@@ -34,11 +33,10 @@ public class HandDisplay : MonoBehaviour
         GameObject cardVisualSpawned;
         cardVisualSpawned = CardManager.Instance.SpawnCard(cardInstance, _cardSpawnPoint);
         _visualCards.Add(cardVisualSpawned);
-        //UpdateCardPositions();
         UpdateCardLine();
 
     }
-    private void UpdateCardLine()
+    private void UpdateCardLine() // UPDATES THE POSITION OF ALL CARDS IN HAND SO THAT THEY APPEAR IN LINE IN FRONT OF THE PLAYER AND WITH SPACING
     {
         float spacing = 0.3f;
         int count = _visualCards.Count;
